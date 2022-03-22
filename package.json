@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "node": "^16.6.1"
+  },
+  "name": "node-1661",
+  "description": "**A discord bot that converts your image to grayscale or inverts the colors.**\r <br/>\r To create an app instance on discord, you may refer to this guide [discord-bot-in-node-js-for-beginners](https://buddy.works/tutorials/how-to-build-a-discord-bot-in-node-js-for-beginners)\r <br/>",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "discord-image-generation": "^1.4.12",
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
+    "node-bin-setup": "^1.0.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
