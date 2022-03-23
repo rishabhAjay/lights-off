@@ -7,7 +7,13 @@ const transformImage = () => {
       let img;
       let attach;
       try {
-        switch (msg.content.slice(2, msg.content.length).replace(/ /g, "")) {
+        let commandString = msg.content
+          .slice(2, msg.content.length)
+          .replace(/ /g, "")
+          .replace(/<.*/g, "")
+          .replace(/[0-9]*/g, "");
+
+        switch (commandString) {
           case "invert":
             img = await new DIG.Invert().getImage(url);
             attach = new MessageAttachment(img, "invert.png");
@@ -16,15 +22,15 @@ const transformImage = () => {
             img = await new DIG.Greyscale().getImage(url);
             attach = new MessageAttachment(img, "greyscale.png");
             break;
-            case "triggered":
+          case "triggered":
             img = await new DIG.Triggered().getImage(url);
             attach = new MessageAttachment(img, "triggered.gif");
             break;
-            case "bobross":
+          case "bobross":
             img = await new DIG.Bobross().getImage(url);
             attach = new MessageAttachment(img, "bobross.png");
             break;
-            case "deletetrash":
+          case "deletetrash":
             img = await new DIG.Delete().getImage(url);
             attach = new MessageAttachment(img, "trash.png");
             break;
@@ -46,16 +52,50 @@ const transformImage = () => {
     };
     if (
       msg.content.startsWith("=/invert") ||
-      msg.content.startsWith("=/greyscale")||
+      msg.content.startsWith("=/greyscale") ||
       msg.content.startsWith("=/triggered") ||
       msg.content.startsWith("=/bobross") ||
       msg.content.startsWith("=/deletetrash")
     ) {
       let url;
+      let IDString = msg.content
+        .replace(/=\//g, "")
+        .replace(/[a-z]*/g, "")
+        .split(" ");
+      if (IDString) {
+        IDString = IDString.filter((ele) => ele !== "");
+
+        IDString.map(async (ele) => {
+          try {
+            let userID = await clientConfig.users.fetch(ele);
+            url = userID.displayAvatarURL({
+              dynamic: true,
+              format: "png",
+              size: 256,
+            });
+            sendImage(url);
+          } catch (error) {
+            clientConfig.user.setActivity("=/help");
+          }
+        });
+      }
+
+      const users = msg.mentions.users;
+      if (users.size > 0) {
+        for (const [key, value] of users.entries()) {
+          url = value.displayAvatarURL({
+            dynamic: true,
+            format: "png",
+            size: 256,
+          });
+          sendImage(url);
+        }
+      }
       const attachments = msg.attachments;
       if (attachments) {
         for (const [key, value] of attachments.entries()) {
           url = value.url;
+
           sendImage(url);
         }
       }
