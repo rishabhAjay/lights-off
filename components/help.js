@@ -26,7 +26,7 @@ const help = () => {
               fields: [
                 {
                   value:
-                    "*You can upload multiple images or reply to messages that contain multiple image embeds. You can also pass in user' as mentions or IDs to tranform their avatars. For example: ```=/invert @User1 User2ID```*",
+                    "*You can upload multiple images or reply to messages that contain multiple image embeds. You can also pass in users as mentions or IDs to tranform their avatars* (like: **=/invert @user1 userid**)",
                   name: "__Note__",
                 },
                 {
