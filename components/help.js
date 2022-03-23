@@ -26,12 +26,15 @@ const help = () => {
               fields: [
                 {
                   value:
-                    "Inverts the color of an Image. Upload an image or reply to an embed/message along with the command.",
+                    "*You can upload multiple images or reply to messages that contain multiple image embeds. You can also pass in user' as mentions or IDs to tranform their avatars. For example: ```=/invert @User1 User2ID```*",
+                  name: "__Note__",
+                },
+                {
+                  value: "Inverts the color of an Image.",
                   name: "- ```=/invert```",
                 },
                 {
-                  value:
-                    "Grayscales an Image. Upload an image or reply to an embed/message along with the command.",
+                  value: "Grayscales an Image.",
                   name: "- ```=/greyscale```",
                 },
                 {
@@ -44,22 +47,20 @@ const help = () => {
                   name: "**Invite this Bot**",
                 },
                 {
-                 value:
-                    "*Some meme commands because why not.*",
+                  value: "*Some meme commands because why not.*",
                   name: "**__FUN COMMANDS__**",
                 },
                 {
-                 value:
-                    "Generates a gif with the triggered meme effect.",
+                  value: "Generates a gif with the triggered meme effect.",
                   name: "- ```=/triggered```",
                 },
                 {
-                 value:
+                  value:
                     "Generates an image of Bob Ross painting the image you selected.",
                   name: "- ```=/bobross```",
                 },
-                 {
-                 value:
+                {
+                  value:
                     "Generates an image of a recycle bin window prompt with the image you selected.",
                   name: "- ```=/deletetrash```",
                 },
@@ -68,9 +69,7 @@ const help = () => {
           ],
         });
       } catch (error) {
-        
         try {
-         
           await msg.author.send(
             "The bot does not have the required permissions. Give it the necessary permissions."
           );
