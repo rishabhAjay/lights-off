@@ -61,7 +61,9 @@ const transformImage = () => {
       let IDString = msg.content
         .replace(/=\//g, "")
         .replace(/[a-z]*/g, "")
+        .replace(/[<@>]/g, "")
         .split(" ");
+
       if (IDString) {
         IDString = IDString.filter((ele) => ele !== "");
 
@@ -80,17 +82,17 @@ const transformImage = () => {
         });
       }
 
-      const users = msg.mentions.users;
-      if (users.size > 0) {
-        for (const [key, value] of users.entries()) {
-          url = value.displayAvatarURL({
-            dynamic: true,
-            format: "png",
-            size: 256,
-          });
-          sendImage(url);
-        }
-      }
+      // const users = msg.mentions.users;
+      // if (users.size > 0) {
+      //   for (const [key, value] of users.entries()) {
+      //     url = value.displayAvatarURL({
+      //       dynamic: true,
+      //       format: "png",
+      //       size: 256,
+      //     });
+      //     sendImage(url);
+      //   }
+      // }
       const attachments = msg.attachments;
       if (attachments) {
         for (const [key, value] of attachments.entries()) {

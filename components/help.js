@@ -25,11 +25,6 @@ const help = () => {
               },
               fields: [
                 {
-                  value:
-                    "*You can upload multiple images or reply to messages that contain multiple image embeds. You can also pass in users as mentions or IDs to tranform their avatars* (like: **=/invert @user1 userid**)",
-                  name: "__Note__",
-                },
-                {
                   value: "Inverts the color of an Image.",
                   name: "- ```=/invert```",
                 },
@@ -63,6 +58,11 @@ const help = () => {
                   value:
                     "Generates an image of a recycle bin window prompt with the image you selected.",
                   name: "- ```=/deletetrash```",
+                },
+                {
+                  value:
+                    "*You can upload multiple images or reply to messages that contain multiple image embeds. You can also pass in users as mentions or IDs to tranform their avatars* (like: **=/invert @user1 userid**)",
+                  name: "__Note__",
                 },
               ],
             },
