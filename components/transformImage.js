@@ -61,9 +61,9 @@ const transformImage = () => {
       let IDString = msg.content
         .replace(/=\//g, "")
         .replace(/[a-z]*/g, "")
-        .replace(/[<@>]/g, "")
+        .replace(/[<@!>]/g, "")
         .split(" ");
-
+      console.log(IDString);
       if (IDString) {
         IDString = IDString.filter((ele) => ele !== "");
 
