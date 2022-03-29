@@ -1,6 +1,8 @@
 ## Lights OFF
 
-**A discord bot that converts your image to grayscale or inverts the colors.**
+**A discord bot that transforms your images with various filters. The bot has been created for the purpose of inverting white mode images.**
+
+The bot uses the [discord-image-generation](https://www.npmjs.com/package/discord-image-generation) npm package for the transformations.
 <br/>
 To create an app instance on discord, you may refer to this guide [discord-bot-in-node-js-for-beginners](https://buddy.works/tutorials/how-to-build-a-discord-bot-in-node-js-for-beginners)
 <br/>
@@ -27,13 +29,13 @@ To create an app instance on discord, you may refer to this guide [discord-bot-i
 - Add **config-var** under your **app settings** with:
   `CLIENT_TOKEN=YOUR DISCORD TOKEN HERE`
   <br/>
-- Before you go ahead with `git push heroku master`, make sure you add [The puppeteer module](https://github.com/jontewks/puppeteer-heroku-buildpack) in **buildpack** under the **app settings**. This will make sure that all dependencies for the _puppeteer module_ are added.
-  <br/>
 - Go ahead and push the project to heroku.
   <br/>
-- Under the **resources tab** of your app, check if the `worker` dyno is enabled, if not then enable it. You would also want to disable the `web` dyno.
+- Under the **resources tab** of your app, check if the `worker` dyno is enabled, if not then enable it. You will also have to disable the `web` dyno.
 
 ### Bot Commands
+
+#### Main Commands
 
 - `=/invert`
   Inverts the color of an Image. Upload an image along with the command(**Only one Image**).
@@ -42,4 +44,16 @@ To create an app instance on discord, you may refer to this guide [discord-bot-i
   Grayscales an Image. Upload an image along with the command(**Only one Image**).
   <br/>
 - `=/help`
-  lists all the commands
+  lists all the commands.
+  <br/>
+
+  #### Fun Commands
+
+- `=/triggered`
+  Generates a gif with the triggered meme effect.
+  <br/>
+- `=/bobross`
+  Generates an image of Bob Ross painting the image you selected.
+  <br/>
+- `=/deletetrash`
+  Generates an image of a recycle bin window prompt with the image you selected.
