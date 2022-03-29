@@ -47,7 +47,7 @@ To create an app instance on discord, you may refer to this guide [discord-bot-i
   lists all the commands.
   <br/>
 
-  #### Fun Commands
+#### Fun Commands
 
 - `=/triggered`
   Generates a gif with the triggered meme effect.
