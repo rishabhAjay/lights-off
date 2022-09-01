@@ -11,7 +11,7 @@ transformImage();
 createInvite();
 clientConfig.on("ready", () => {
   console.log(`Logged in as ${clientConfig.user.tag}!`);
-  cron.schedule("*/9 * * * *", () => {
+  cron.schedule("*/5 * * * *", () => {
     clientConfig.user.setActivity("=/help");
   });
 });
