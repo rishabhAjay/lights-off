@@ -40,6 +40,7 @@ const transformImage = () => {
 
         await msg.channel.send({ files: [attach] });
       } catch (error) {
+        console.log(error);
         try {
           const reply = await msg.reply(
             "An error occurred. The bot either does not have the necessary permissions or you have used an invalid file format."
