@@ -17,21 +17,21 @@ clientConfig.on("ready", () => {
   });
 });
 
-// const port = 3000 || process.env.PORT;
+const port = process.env.PORT || 3000;
 
-// const requestHandler = (request, response) => {
-//   response.end("Hello Node.js Server!");
-// };
+const requestHandler = (request, response) => {
+  response.end("Hello Node.js Server!");
+};
 
-// const server = http.createServer(requestHandler);
+const server = http.createServer(requestHandler);
 
-// server.listen(port, (err) => {
-//   if (err) {
-//     return console.log("something bad happened", err);
-//   }
+server.listen(port, (err) => {
+  if (err) {
+    return console.log("something bad happened", err);
+  }
 
-//   console.log(`server is listening on ${port}`);
-// });
+  console.log(`server is listening on ${port}`);
+});
 
 //make sure this line is the last line
 clientConfig.login(process.env.CLIENT_TOKEN); //login bot using token
