@@ -20,12 +20,28 @@ clientConfig.on("ready", () => {
 const port = process.env.PORT || 3000;
 
 const requestHandler = (request, response) => {
-  response.end("Hello Node.js Server!");
+  const reqUrl = url.parse(request.url).pathname;
+  if (request.method == "GET") {
+    if (reqUrl == "/health") {
+      const healthcheck = {
+        uptime: process.uptime(),
+        message: "OK",
+        timestamp: Date.now(),
+      };
+      try {
+        res.send(healthcheck);
+      } catch (error) {
+        healthcheck.message = error;
+        res.status(503).send();
+      }
+    } else if (reqUrl === "/") {
+      res.send("Welcome to Lights Off!");
+    }
+  }
 };
 
 const server = http.createServer(requestHandler);
-
-server.listen(port, (err) => {
+server.server.listen(port, (err) => {
   if (err) {
     return console.log("something bad happened", err);
   }
