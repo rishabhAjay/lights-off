@@ -6,6 +6,7 @@ import transformImage from "./components/transformImage.js";
 import createInvite from "./components/createInvite.js";
 import cron from "node-cron";
 import http from "http";
+import url from "url";
 //exported functions
 help();
 transformImage();
@@ -20,7 +21,8 @@ clientConfig.on("ready", () => {
 const port = process.env.PORT || 3000;
 
 const requestHandler = (request, response) => {
-  const reqUrl = url.parse(request.url).pathname;
+  const baseURL = req.protocol + "://" + req.headers.host + "/";
+  const reqUrl = new URL(req.url, baseURL);
   if (request.method == "GET") {
     if (reqUrl == "/health") {
       const healthcheck = {
