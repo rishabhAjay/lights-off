@@ -21,8 +21,8 @@ clientConfig.on("ready", () => {
 const port = process.env.PORT || 3000;
 
 const requestHandler = (request, response) => {
-  const baseURL = req.protocol + "://" + req.headers.host + "/";
-  const reqUrl = new URL(req.url, baseURL);
+  const baseURL = request.protocol + "://" + request.headers.host + "/";
+  const reqUrl = new URL(request.url, baseURL);
   if (request.method == "GET") {
     if (reqUrl == "/health") {
       const healthcheck = {
